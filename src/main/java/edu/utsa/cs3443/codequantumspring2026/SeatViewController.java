@@ -153,7 +153,7 @@ public class SeatViewController {
 
     }
 
-    void findSeatClicked() {
+    void findSeatClicked(){
         int i = 0;
         for(Ticket ticket : ticketManager.getTicketList()){
             if(!ticket.isAvailable()){
