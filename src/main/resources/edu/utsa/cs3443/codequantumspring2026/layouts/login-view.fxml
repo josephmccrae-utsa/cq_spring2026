@@ -37,7 +37,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button mnemonicParsing="false" onAction="#onSignUpButtonClicked" text="Sign Up">
+      <Button mnemonicParsing="false" onAction="#onSignUpButtonClicked" text="Sign Up" visible="false">
          <effect>
             <DropShadow />
          </effect>

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -16,6 +17,7 @@ public class SeatViewController {
     Stage stage;
 
     private Customer customer;
+    double priceTotal;
 
     private ArrayList<RadioButton> seatButtons = new ArrayList<>();
 
@@ -113,6 +115,9 @@ public class SeatViewController {
     private RadioButton RadioButton54;
 
     @FXML
+    private Label seatOutputLabel;
+
+    @FXML
     private GridPane areaC;
 
     @FXML
@@ -130,7 +135,7 @@ public class SeatViewController {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layouts/login-view.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("Aid Ship Application");
+            stage.setTitle("F1 Seat Finder Login!");
             stage.setScene(scene);
             stage.show();
             LoginController loginController = fxmlLoader.getController();
@@ -143,7 +148,7 @@ public class SeatViewController {
 
     @FXML
     void purchaseButtonClicked(ActionEvent event) {
-        System.out.println("Tickets have been bought!");
+        seatOutputLabel.setText("Tickets have been bought!");
         purchaseTickets();
 
     }
@@ -160,7 +165,7 @@ public class SeatViewController {
     @FXML
     void onCalculatePriceButtonClicked(ActionEvent event) {
         findUserClickedSeats();
-        double priceTotal = 0;
+        priceTotal = 0;
         priceTotal = customer.addTicketPrices();
         ticketPriceTextField.setText("$" + Double.toString((priceTotal)));
 
@@ -168,10 +173,10 @@ public class SeatViewController {
 
     void findUserClickedSeats() {
         int i = 0;
+        customer.getBuyingTickets().clear();
         for(Ticket ticket : ticketManager.getTicketList()) {
             if (ticket.isAvailable() && seatButtons.get(i).isSelected()) {
                 customer.addBuyingTicket(ticket);
-//                System.out.println("Buying ticket: " + ticket.getColumn() + " " + ticket.getRow());
             }
             i = i + 1;
         }
