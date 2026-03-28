@@ -4,7 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+import java.util.ArrayList;
+
 public class LoginController {
+
+    private UserManager users;
 
     @FXML
     private TextField passwordTextField;
@@ -14,12 +18,20 @@ public class LoginController {
 
     @FXML
     void onLoginButtonClicked(ActionEvent event) {
+        String username = usernameTextField.getText();
+        String password = passwordTextField.getText();
+
+
 
     }
 
     @FXML
     void onSignUpButtonClicked(ActionEvent event) {
 
+    }
+
+    public void initialize() {
+        users = new UserManager();
     }
 
 }
