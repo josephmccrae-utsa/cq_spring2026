@@ -154,9 +154,8 @@ public class SeatViewController {
     }
 
     void findSeatClicked(){
+        int i = 0;
         for(Ticket ticket : ticketManager.getTicketList()){
-            int i = 0;
-
             if(!ticket.isAvailable()){
                 seatButtons.get(i).setVisible(false);
                 seatButtons.get(i).setSelected(true);
