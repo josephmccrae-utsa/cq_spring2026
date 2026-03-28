@@ -36,7 +36,7 @@ public class LoginController {
             try{
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layouts/seat-view.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
-                stage.setTitle("Aid Ship Application");
+                stage.setTitle("F1 Seat Finder!");
                 stage.setScene(scene);
                 stage.show();
                 SeatViewController seatViewController = fxmlLoader.getController();
