@@ -180,39 +180,38 @@ public class SeatViewController {
     private void loadRadioButtons() {
 
         seatButtons.add(RadioButton00);
-        seatButtons.add(RadioButton01);
-        seatButtons.add(RadioButton02);
-        seatButtons.add(RadioButton03);
-        seatButtons.add(RadioButton04);
-
         seatButtons.add(RadioButton10);
-        seatButtons.add(RadioButton11);
-        seatButtons.add(RadioButton12);
-        seatButtons.add(RadioButton13);
-        seatButtons.add(RadioButton14);
-
         seatButtons.add(RadioButton20);
-        seatButtons.add(RadioButton21);
-        seatButtons.add(RadioButton22);
-        seatButtons.add(RadioButton23);
-        seatButtons.add(RadioButton24);
-
         seatButtons.add(RadioButton30);
-        seatButtons.add(RadioButton31);
-        seatButtons.add(RadioButton32);
-        seatButtons.add(RadioButton33);
-        seatButtons.add(RadioButton34);
-
         seatButtons.add(RadioButton40);
-        seatButtons.add(RadioButton41);
-        seatButtons.add(RadioButton42);
-        seatButtons.add(RadioButton43);
-        seatButtons.add(RadioButton44);
-
         seatButtons.add(RadioButton50);
+
+        seatButtons.add(RadioButton01);
+        seatButtons.add(RadioButton11);
+        seatButtons.add(RadioButton21);
+        seatButtons.add(RadioButton31);
+        seatButtons.add(RadioButton41);
         seatButtons.add(RadioButton51);
+
+        seatButtons.add(RadioButton02);
+        seatButtons.add(RadioButton12);
+        seatButtons.add(RadioButton22);
+        seatButtons.add(RadioButton32);
+        seatButtons.add(RadioButton42);
         seatButtons.add(RadioButton52);
+
+        seatButtons.add(RadioButton03);
+        seatButtons.add(RadioButton13);
+        seatButtons.add(RadioButton23);
+        seatButtons.add(RadioButton33);
+        seatButtons.add(RadioButton43);
         seatButtons.add(RadioButton53);
+
+        seatButtons.add(RadioButton04);
+        seatButtons.add(RadioButton14);
+        seatButtons.add(RadioButton24);
+        seatButtons.add(RadioButton34);
+        seatButtons.add(RadioButton44);
         seatButtons.add(RadioButton54);
     }
 }
