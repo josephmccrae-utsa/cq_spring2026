@@ -160,7 +160,7 @@ public class SeatViewController {
                 seatButtons.get(i).setVisible(false);
                 seatButtons.get(i).setSelected(true);
             }
-            i++;
+            i = i + 1;
         }
     }
 
