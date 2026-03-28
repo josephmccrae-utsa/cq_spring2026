@@ -59,19 +59,25 @@ public class TicketManager{
 
     private Ticket convertLineToTicket(String line) {
         String[] fields = line.split(",");
-//        if(fields.length != 3) {
-//            return null;
-//        }
+        if(fields.length > 5) {
+            return null;
+        }
+        if(fields.length == 5) {
+            return new Ticket(Integer.parseInt(fields[0]),Integer.parseInt(fields[1]),Double.parseDouble(fields[2]), Boolean.parseBoolean(fields[3]), fields[4]);
+        }
         return new Ticket(Integer.parseInt(fields[0]),Integer.parseInt(fields[1]),Double.parseDouble(fields[2]), Boolean.parseBoolean(fields[3]));
     }
 
     private String convertTicketToLine(Ticket ticket) {
+        if (ticket.getOwner() != null) {
+            return ticket.getColumn() + "," + ticket.getRow() + "," + ticket.getSeatPrice() + "," + ticket.isAvailable() + "," + ticket.getOwner();
+        }
         return ticket.getColumn() + "," + ticket.getRow() + "," + ticket.getSeatPrice() + "," + ticket.isAvailable();
     }
 
-    public Ticket findTicket(int xPos, int yPos) {
+    public Ticket findTicket(int col, int row) {
         for (Ticket ticket : ticketList) {
-            if (ticket.getColumn() == xPos && ticket.getRow() == yPos) {
+            if (ticket.getColumn() == col && ticket.getRow() == row) {
                 return ticket;
             }
         }

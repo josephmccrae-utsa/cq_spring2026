@@ -23,9 +23,10 @@ public class Customer extends User{
         try {
             String line;
             Ticket ticket;
-            File inputFile = new File("data/userTickets.txt");
+            File inputFile = new File("data/seats.txt");
             input = new Scanner(inputFile);
 
+//            input.nextLine();   // Skips header
             while (input.hasNextLine()) {
                 line = input.nextLine();
                 ticket = checkUserTicket(line);
@@ -42,30 +43,12 @@ public class Customer extends User{
         }
     }
 
-
-//    public void saveTickets() {
-//        try {
-//            BufferedWriter output = new BufferedWriter(new FileWriter("data/users.txt"));
-//
-//            for (Ticket ticket : ticketList) {
-//                output.write(convertTicketToLine(ticket));
-//                output.newLine();
-//            }
-//            output.close();
-//        } catch (IOException e) {
-//            System.out.println("ERROR: Writing to data file: " + e.getMessage());
-//        }
-//    }
-
     private Ticket checkUserTicket(String line) {
         String[] fields = line.split(",");
-//        if(fields.length != 3) {
-//            return null;
-//        }
-        if (fields[0].compareTo(getName()) == 0) {
-            return new Ticket(Integer.parseInt(fields[1]), Integer.parseInt(fields[2]));
+        if(fields[4].compareTo(getName()) == 0) {
+            return new Ticket(Integer.parseInt(fields[0]),Integer.parseInt(fields[1]),Double.parseDouble(fields[2]), Boolean.parseBoolean(fields[3]), fields[4]);
         }
-        else return null;
+        return null;
     }
 
     public double addTicketPrices(){

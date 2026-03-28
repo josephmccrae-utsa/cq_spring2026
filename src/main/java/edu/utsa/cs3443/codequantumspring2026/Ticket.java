@@ -5,12 +5,21 @@ public class Ticket {
     private int row;
     private double seatPrice;
     private boolean available;
+    private String owner;
 
     public Ticket(int column, int row, double seatPrice, boolean available) {
         this.column = column;
         this.row = row;
         this.seatPrice = seatPrice;
         this.available = available;
+    }
+
+    public Ticket(int column, int row, double seatPrice, boolean available, String owner) {
+        this.column = column;
+        this.row = row;
+        this.seatPrice = seatPrice;
+        this.available = available;
+        this.owner = owner;
     }
 
     public Ticket(int column, int row) {
@@ -50,5 +59,13 @@ public class Ticket {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 }
