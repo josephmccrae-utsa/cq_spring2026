@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Customer extends User{
     private ArrayList<Ticket> ticketsBought = new ArrayList<Ticket>();
+    private ArrayList<Ticket> buyingTickets = new ArrayList<Ticket>();
 
     public Customer(String name, String username, String password) {
         super(name, username, password);
@@ -15,6 +16,13 @@ public class Customer extends User{
 
     public void addTicket(Ticket ticket) {
         ticketsBought.add(ticket);
+    }
+    public void addBuyingTicket(Ticket ticket) {
+        buyingTickets.add(ticket);
+    }
+
+    public ArrayList<Ticket> getBuyingTickets() {
+        return buyingTickets;
     }
 
     private void loadUserTickets() {
@@ -45,15 +53,20 @@ public class Customer extends User{
 
     private Ticket checkUserTicket(String line) {
         String[] fields = line.split(",");
-        if(fields[4].compareTo(getName()) == 0) {
-            return new Ticket(Integer.parseInt(fields[0]),Integer.parseInt(fields[1]),Double.parseDouble(fields[2]), Boolean.parseBoolean(fields[3]), fields[4]);
+        if (fields[3].compareTo("false") == 0) {
+            if(fields[4].compareTo(getName()) == 0) {
+                return new Ticket(Integer.parseInt(fields[0]),Integer.parseInt(fields[1]),Double.parseDouble(fields[2]), Boolean.parseBoolean(fields[3]), fields[4]);
+            }
         }
+
         return null;
     }
 
+
+
     public double addTicketPrices(){
         double totalPrice = 0;
-        for(Ticket ticket : ticketsBought){
+        for(Ticket ticket : buyingTickets){
             totalPrice += ticket.getSeatPrice();
         }
         return totalPrice;

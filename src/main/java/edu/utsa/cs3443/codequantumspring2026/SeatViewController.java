@@ -20,6 +20,7 @@ public class SeatViewController {
     private ArrayList<RadioButton> seatButtons = new ArrayList<>();
 
     private TicketManager ticketManager;
+    private ArrayList<Ticket> buyingTickets = new ArrayList<Ticket>();
 
     @FXML
     private RadioButton RadioButton00;
@@ -142,15 +143,38 @@ public class SeatViewController {
 
     @FXML
     void purchaseButtonClicked(ActionEvent event) {
-        double ticketPrice = customer.addTicketPrices();
-        ticketPriceTextField.setText("$" + Double.toString(ticketPrice));
+        System.out.println("Tickets have been bought!");
+        purchaseTickets();
+
+    }
+
+    public void purchaseTickets() {
+        for (Ticket ticket : customer.getBuyingTickets()) {
+            ticket.setOwner(customer.getName());
+            ticket.setAvailable(false);
+            ticketManager.updateFindTicket(ticket);
+        }
+        ticketManager.saveTickets();
     }
 
     @FXML
     void onCalculatePriceButtonClicked(ActionEvent event) {
-        double ticketPrice = customer.addTicketPrices();
-        ticketPriceTextField.setText("$" + Double.toString(ticketPrice));
+        findUserClickedSeats();
+        double priceTotal = 0;
+        priceTotal = customer.addTicketPrices();
+        ticketPriceTextField.setText("$" + Double.toString((priceTotal)));
 
+    }
+
+    void findUserClickedSeats() {
+        int i = 0;
+        for(Ticket ticket : ticketManager.getTicketList()) {
+            if (ticket.isAvailable() && seatButtons.get(i).isSelected()) {
+                customer.addBuyingTicket(ticket);
+//                System.out.println("Buying ticket: " + ticket.getColumn() + " " + ticket.getRow());
+            }
+            i = i + 1;
+        }
     }
 
     void findSeatClicked(){
