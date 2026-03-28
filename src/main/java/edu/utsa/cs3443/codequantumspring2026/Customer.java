@@ -10,6 +10,10 @@ public class Customer extends User{
         this.ticketsBought = loadTickets();
     }
 
+    public void addTicket(Ticket ticket) {
+        ticketsBought.add(ticket);
+    }
+
 
     private ArrayList<Ticket> loadTickets(){
 

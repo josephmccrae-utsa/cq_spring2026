@@ -2,5 +2,3 @@ David,davidgoliath101,withaslingshot
 test,test101,asdf
 test2,test102,1234
 chalk,chalky,chalkisgreat
-chalk,chalky,chalkisgreat
-chalk,chalky,chalkisgreat
