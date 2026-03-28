@@ -17,7 +17,9 @@ public class SeatViewController {
 
     private Customer customer;
 
-    private ArrayList<RadioButton> seatButtons;
+    private ArrayList<RadioButton> seatButtons = new ArrayList<>();
+
+    private TicketManager ticketManager;
 
     @FXML
     private RadioButton RadioButton00;
@@ -115,8 +117,11 @@ public class SeatViewController {
     @FXML
     private TextField ticketPriceTextField;
 
+    @FXML
     public void initialize(){
         loadRadioButtons();
+        ticketManager = new TicketManager();
+        findSeatClicked();
     }
 
     @FXML
@@ -149,7 +154,15 @@ public class SeatViewController {
     }
 
     void findSeatClicked(){
+        for(Ticket ticket : ticketManager.getTicketList()){
+            int i = 0;
 
+            if(!ticket.isAvailable()){
+                seatButtons.get(i).setVisible(false);
+                seatButtons.get(i).setSelected(true);
+            }
+            i++;
+        }
     }
 
     void setStage(Stage stage){
