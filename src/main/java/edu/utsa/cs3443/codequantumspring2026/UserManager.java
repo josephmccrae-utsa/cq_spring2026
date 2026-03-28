@@ -1,7 +1,6 @@
 package edu.utsa.cs3443.codequantumspring2026;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +13,7 @@ public class UserManager {
     }
 
 
-    private void addUser(User user) {
+    public void addUser(User user) {
         userList.add(user);
     }
 
@@ -44,12 +43,30 @@ public class UserManager {
         }
     }
 
+    public void saveUsers() {
+        try {
+            BufferedWriter output = new BufferedWriter(new FileWriter("data/users.txt"));
+
+            for (User user : userList) {
+                output.write(convertUserToLine(user));
+                output.newLine();
+            }
+            output.close();
+        } catch (IOException e) {
+            System.out.println("ERROR: Writing to data file: " + e.getMessage());
+        }
+    }
+
     private User convertLineToUser(String line) {
         String[] fields = line.split(",");
         if(fields.length != 3) {
             return null;
         }
         return new User(fields[0], fields[1], fields[2]);
+    }
+
+    private String convertUserToLine(User user) {
+        return user.getName() + "," + user.getUsername() + "," + user.getPassword();
     }
 
     public ArrayList<User> getUserList() {
