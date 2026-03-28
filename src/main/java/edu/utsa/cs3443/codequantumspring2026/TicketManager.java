@@ -45,7 +45,7 @@ public class TicketManager{
 
     public void saveTickets() {
         try {
-            BufferedWriter output = new BufferedWriter(new FileWriter("data/users.txt"));
+            BufferedWriter output = new BufferedWriter(new FileWriter("data/seats.txt"));
 
             for (Ticket ticket : ticketList) {
                 output.write(convertTicketToLine(ticket));
@@ -82,6 +82,14 @@ public class TicketManager{
             }
         }
         return null;
+    }
+
+    public void updateFindTicket(Ticket ticket) {
+        for (Ticket t : ticketList) {
+            if (t.getRow() == ticket.getRow() && t.getColumn() == ticket.getColumn()) {
+                t = ticket;
+            }
+        }
     }
 
     public ArrayList<Ticket> getTicketList() {
