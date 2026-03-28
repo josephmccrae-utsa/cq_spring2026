@@ -20,11 +20,12 @@ public class Customer extends User{
         return null;
     }
 
-    public void addTicketPrices(){
+    public double addTicketPrices(){
         double totalPrice = 0;
         for(Ticket ticket : ticketsBought){
             totalPrice += ticket.getSeatPrice();
         }
+        return totalPrice;
     }
 
 }
