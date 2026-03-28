@@ -1,14 +1,11 @@
 package edu.utsa.cs3443.codequantumspring2026;
 
-import javafx.application.Application;
 
 public class Launcher {
     public static void main(String[] args) {
-//        UserManager users = new UserManager();
-//
-//        User loginUser = new User("chalk", "chalky", "chalkisgreat");
-//        boolean real = users.isUser(loginUser);
-//        System.out.println(real);
+        /*UserManager users = new UserManager();
+        User currUser = users.getUserList().get(0);
+        System.out.println(currUser.getName());
 
 //
 //        TicketManager tickets = new TicketManager();
@@ -22,6 +19,6 @@ public class Launcher {
 
 
 
-        Application.launch(HelloApplication.class, args);
+//        Application.launch(HelloApplication.class, args);*/
     }
 }
