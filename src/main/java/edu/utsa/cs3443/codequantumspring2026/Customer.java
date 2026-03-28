@@ -68,19 +68,12 @@ public class Customer extends User{
         else return null;
     }
 
-//    private String convertTicketToLine(Ticket ticket) {
-//        return ticket.getxPosition() + "," + ticket.getyPosition() + "," + ticket.getSeatPrice() + "," + ticket.isAvailable();
-//    }
-//
-//    public ArrayList<Ticket> getTicketList() {
-//        return ticketList;
-//    }
-
-    public void addTicketPrices(){
+    public double addTicketPrices(){
         double totalPrice = 0;
         for(Ticket ticket : ticketsBought){
             totalPrice += ticket.getSeatPrice();
         }
+        return totalPrice;
     }
 
 }
