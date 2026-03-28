@@ -8,6 +8,12 @@ public class Launcher {
         User currUser = users.getUserList().get(0);
         System.out.println(currUser.getName());
 
+        User newUser = new User("chalk", "chalky", "chalkisgreat");
+        users.addUser(newUser);
+        users.saveUsers();
+        User lastUser = users.getUserList().getLast();
+        System.out.println(lastUser.getName());
+
 //        Application.launch(HelloApplication.class, args);
     }
 }
