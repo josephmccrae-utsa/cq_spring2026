@@ -62,11 +62,11 @@ public class TicketManager{
         if(fields.length != 3) {
             return null;
         }
-        return new Ticket(fields[0], Double.parseDouble(fields[1]), Boolean.parseBoolean(fields[2]));
+        return new Ticket(Integer.parseInt(fields[0]),Integer.parseInt(fields[1]),Double.parseDouble(fields[2]), Boolean.parseBoolean(fields[3]));
     }
 
     private String convertTicketToLine(Ticket ticket) {
-        return ticket.getSeatNumber() + "," + ticket.getSeatPrice() + "," + ticket.isAvailable();
+        return ticket.getxPosition() + "," + ticket.getyPosition() + "," + ticket.getSeatPrice() + "," + ticket.isAvailable();
     }
 
     public ArrayList<Ticket> getTicketList() {
