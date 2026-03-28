@@ -59,14 +59,23 @@ public class TicketManager{
 
     private Ticket convertLineToTicket(String line) {
         String[] fields = line.split(",");
-        if(fields.length != 3) {
-            return null;
-        }
+//        if(fields.length != 3) {
+//            return null;
+//        }
         return new Ticket(Integer.parseInt(fields[0]),Integer.parseInt(fields[1]),Double.parseDouble(fields[2]), Boolean.parseBoolean(fields[3]));
     }
 
     private String convertTicketToLine(Ticket ticket) {
-        return ticket.getxPosition() + "," + ticket.getyPosition() + "," + ticket.getSeatPrice() + "," + ticket.isAvailable();
+        return ticket.getColumn() + "," + ticket.getRow() + "," + ticket.getSeatPrice() + "," + ticket.isAvailable();
+    }
+
+    public Ticket findTicket(int xPos, int yPos) {
+        for (Ticket ticket : ticketList) {
+            if (ticket.getColumn() == xPos && ticket.getRow() == yPos) {
+                return ticket;
+            }
+        }
+        return null;
     }
 
     public ArrayList<Ticket> getTicketList() {
