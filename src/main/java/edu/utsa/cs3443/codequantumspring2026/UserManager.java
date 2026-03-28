@@ -72,4 +72,13 @@ public class UserManager {
     public ArrayList<User> getUserList() {
         return userList;
     }
+
+    public boolean isUser(User currUser) {
+        for (User user : userList) {
+            if ((user.getUsername().compareTo(currUser.getUsername()) == 0) && (user.getPassword().compareTo(currUser.getPassword()) == 0)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -1,22 +1,32 @@
 package edu.utsa.cs3443.codequantumspring2026;
 
 public class Ticket {
-    private String seatNumber;
+    private int xPosition;
+    private int yPosition;
     private double seatPrice;
     private boolean available;
 
-    public Ticket(String seatNumber, double seatPrice, boolean available) {
-        this.seatNumber = seatNumber;
+    public Ticket(int xPosition, int yPosition, double seatPrice, boolean available) {
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
         this.seatPrice = seatPrice;
         this.available = available;
     }
 
-    public String getSeatNumber() {
-        return seatNumber;
+    public int getxPosition() {
+        return xPosition;
     }
 
-    public void setSeatNumber(String seatNumber) {
-        this.seatNumber = seatNumber;
+    public void setxPosition(int xPosition) {
+        this.xPosition = xPosition;
+    }
+
+    public int getyPosition() {
+        return yPosition;
+    }
+
+    public void setyPosition(int yPosition) {
+        this.yPosition = yPosition;
     }
 
     public double getSeatPrice() {
