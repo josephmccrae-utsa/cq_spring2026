@@ -4,7 +4,7 @@ import javafx.application.Application;
 
 public class Launcher {
     public static void main(String[] args) {
-        System.out.println("Commiting change from Alex in the branch");
+        System.out.println("Commiting change from Dominic in the branch");
         Application.launch(HelloApplication.class, args);
     }
 }
