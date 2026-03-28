@@ -4,10 +4,10 @@ import javafx.application.Application;
 
 public class Launcher {
     public static void main(String[] args) {
-        System.out.println("Commiting change from Dominic in the branch");
-        //System.out.println(System.getProperty("user.dir"));
+        UserManager users = new UserManager();
+        User currUser = users.getUserList().get(0);
+        System.out.println(currUser.getName());
 
-        System.out.println("Belinda was here");
-        Application.launch(HelloApplication.class, args);
+//        Application.launch(HelloApplication.class, args);
     }
 }
