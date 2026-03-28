@@ -41,6 +41,7 @@ public class LoginController {
                 stage.show();
                 SeatViewController seatViewController = fxmlLoader.getController();
                 seatViewController.setStage(stage);
+                seatViewController.setCustomer(user);
             }
             catch(Exception e){
                 e.printStackTrace();

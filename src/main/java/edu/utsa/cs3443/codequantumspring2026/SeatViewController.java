@@ -9,9 +9,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public class SeatViewController {
 
     Stage stage;
+
+    private Customer customer;
+
+    private ArrayList<RadioButton> seatButtons;
 
     @FXML
     private RadioButton RadioButton00;
@@ -109,6 +115,10 @@ public class SeatViewController {
     @FXML
     private TextField ticketPriceTextField;
 
+    public void initialize(){
+        loadRadioButtons();
+    }
+
     @FXML
     void onLogoutButtonClicked(ActionEvent event) {
         try{
@@ -127,10 +137,70 @@ public class SeatViewController {
 
     @FXML
     void purchaseButtonClicked(ActionEvent event) {
+        double ticketPrice = customer.addTicketPrices();
+        ticketPriceTextField.setText("$" + Double.toString(ticketPrice));
+    }
+
+    @FXML
+    void onCalculatePriceButtonClicked(ActionEvent event) {
+        double ticketPrice = customer.addTicketPrices();
+        ticketPriceTextField.setText("$" + Double.toString(ticketPrice));
+
+    }
+
+    void findSeatClicked(){
 
     }
 
     void setStage(Stage stage){
         this.stage = stage;
+    }
+
+    void setCustomer(User user){
+        UserManager userManager = new UserManager();
+        for(User u : userManager.getUserList()){
+            if(u.getUsername().equals(user.getUsername()) && u.getPassword().equals(user.getPassword())){
+                this.customer = new Customer(u.getName(), u.getUsername(), u.getPassword());
+            }
+        }
+    }
+
+    private void loadRadioButtons() {
+
+        seatButtons.add(RadioButton00);
+        seatButtons.add(RadioButton01);
+        seatButtons.add(RadioButton02);
+        seatButtons.add(RadioButton03);
+        seatButtons.add(RadioButton04);
+
+        seatButtons.add(RadioButton10);
+        seatButtons.add(RadioButton11);
+        seatButtons.add(RadioButton12);
+        seatButtons.add(RadioButton13);
+        seatButtons.add(RadioButton14);
+
+        seatButtons.add(RadioButton20);
+        seatButtons.add(RadioButton21);
+        seatButtons.add(RadioButton22);
+        seatButtons.add(RadioButton23);
+        seatButtons.add(RadioButton24);
+
+        seatButtons.add(RadioButton30);
+        seatButtons.add(RadioButton31);
+        seatButtons.add(RadioButton32);
+        seatButtons.add(RadioButton33);
+        seatButtons.add(RadioButton34);
+
+        seatButtons.add(RadioButton40);
+        seatButtons.add(RadioButton41);
+        seatButtons.add(RadioButton42);
+        seatButtons.add(RadioButton43);
+        seatButtons.add(RadioButton44);
+
+        seatButtons.add(RadioButton50);
+        seatButtons.add(RadioButton51);
+        seatButtons.add(RadioButton52);
+        seatButtons.add(RadioButton53);
+        seatButtons.add(RadioButton54);
     }
 }
