@@ -4,7 +4,7 @@ import javafx.application.Application;
 
 public class Launcher {
     public static void main(String[] args) {
-        System.out.println("Commiting");
+        System.out.println("Commiting change from Alex");
         Application.launch(HelloApplication.class, args);
     }
 }
