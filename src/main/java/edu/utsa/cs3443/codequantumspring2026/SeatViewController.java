@@ -2,11 +2,16 @@ package edu.utsa.cs3443.codequantumspring2026;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class SeatViewController {
+
+    Stage stage;
 
     @FXML
     private RadioButton RadioButton00;
@@ -106,7 +111,18 @@ public class SeatViewController {
 
     @FXML
     void onLogoutButtonClicked(ActionEvent event) {
-
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layouts/login-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle("Aid Ship Application");
+            stage.setScene(scene);
+            stage.show();
+            LoginController loginController = fxmlLoader.getController();
+            loginController.setStage(stage);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -114,4 +130,7 @@ public class SeatViewController {
 
     }
 
+    void setStage(Stage stage){
+        this.stage = stage;
+    }
 }

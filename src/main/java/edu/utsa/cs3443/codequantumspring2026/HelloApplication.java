@@ -12,8 +12,10 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layouts/login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("F1 Seat Finder!");
         stage.setScene(scene);
+        LoginController loginController = fxmlLoader.getController();
+        loginController.setStage(stage);
         stage.show();
     }
 }
