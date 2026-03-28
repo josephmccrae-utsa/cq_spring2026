@@ -2,12 +2,17 @@ package edu.utsa.cs3443.codequantumspring2026;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
 public class LoginController {
+
+    Stage stage;
 
     private UserManager users;
 
@@ -28,7 +33,19 @@ public class LoginController {
 
         User user = new User("", username, password);
         if (users.isUser(user)) {
-            // move screen
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layouts/seat-view.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                stage.setTitle("Aid Ship Application");
+                stage.setScene(scene);
+                stage.show();
+                SeatViewController seatViewController = fxmlLoader.getController();
+                seatViewController.setStage(stage);
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+
         }
         else {
             errorLabel.setText("Username or Password is incorrect.");
@@ -45,4 +62,7 @@ public class LoginController {
         users = new UserManager();
     }
 
+    void setStage(Stage stage){
+        this.stage = stage;
+    }
 }
