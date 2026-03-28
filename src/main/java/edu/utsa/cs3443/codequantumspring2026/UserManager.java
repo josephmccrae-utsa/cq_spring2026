@@ -59,9 +59,9 @@ public class UserManager {
 
     private User convertLineToUser(String line) {
         String[] fields = line.split(",");
-        if(fields.length != 3) {
-            return null;
-        }
+//        if(fields.length != 3) {
+//            return null;
+//        }
         return new User(fields[0], fields[1], fields[2]);
     }
 

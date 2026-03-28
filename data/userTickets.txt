@@ -1,5 +1,0 @@
-David,0,0
-David,0,1
-test,1,4
-test2,1,5
-chalk,3,2
